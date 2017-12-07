@@ -1,4 +1,4 @@
-from common_utils import *
+from .common_utils import *
 
 def put_in_center(img_np, target_size):
     img_out = np.zeros([3, target_size[0], target_size[1]])
@@ -16,9 +16,13 @@ def put_in_center(img_np, target_size):
 
 
 def load_LR_HR_imgs_sr(fname, imsize, factor, enforse_div32=None):
-    '''
-        imsize = -1 when .. .
-        
+    '''Loads an image, resizes it, center crops and downscales.
+
+    Args: 
+        fname: path to the image
+        imsize: new size for the image, -1 for no resizing
+        factor: downscaling factor
+        enforse_div32: if 'CROP' center crops an image, so that its dimensions are divisible by 32.
     '''
     img_orig_pil, img_orig_np = get_image(fname, -1)
 
@@ -50,9 +54,7 @@ def load_LR_HR_imgs_sr(fname, imsize, factor, enforse_div32=None):
     img_LR_pil = img_HR_pil.resize(LR_size, Image.ANTIALIAS)
     img_LR_np = pil_to_np(img_LR_pil)
 
-    print 'HR and LR resolutions: %s, %s' % (str(img_HR_pil.size), str (img_LR_pil.size))
-    # else:
-    #     assert False
+    print('HR and LR resolutions: %s, %s' % (str(img_HR_pil.size), str (img_LR_pil.size)))
 
     return {
                 'orig_pil': img_orig_pil,
@@ -65,6 +67,7 @@ def load_LR_HR_imgs_sr(fname, imsize, factor, enforse_div32=None):
 
 
 def get_baselines(img_LR_pil, img_HR_pil):
+    '''Gets `bicubic`, sharpened bicubic and `nearest` baselines.'''
     img_bicubic_pil = img_LR_pil.resize(img_HR_pil.size, Image.BICUBIC)
     img_bicubic_np = pil_to_np(img_bicubic_pil)
 
@@ -79,6 +82,12 @@ def get_baselines(img_LR_pil, img_HR_pil):
 
 
 def tv_loss(x, beta = 0.5):
+    '''Calculates TV loss for an image `x`.
+        
+    Args:
+        x: image, torch.Variable of torch.Tensor
+        beta: See https://arxiv.org/abs/1412.0035 (fig. 2) to see effect of `beta` 
+    '''
     dh = torch.pow(x[:,:,:,1:] - x[:,:,:,:-1], 2)
     dw = torch.pow(x[:,:,1:,:] - x[:,:,:-1,:], 2)
     
