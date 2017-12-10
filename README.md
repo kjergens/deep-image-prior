@@ -1,4 +1,4 @@
-My notes: [ec2 cuda instructions] (https://github.com/pytorch/builder)
+My notes: [ec2 cuda instructions](https://github.com/pytorch/builder)
 
 # Deep image prior
 
