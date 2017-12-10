@@ -1,3 +1,5 @@
+My notes: [ec2 cuda instructions] (https://github.com/pytorch/builder)
+
 # Deep image prior
 
 In this repository we provide *Jupyter Notebooks* to reproduce each figure from the paper:
