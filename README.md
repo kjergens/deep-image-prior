@@ -1,3 +1,5 @@
+My notes: [ec2 cuda instructions](https://github.com/pytorch/builder), You can change dtype to torch.FloatTensor at the top of each notebook to use CPU instead of GPU.
+
 # Deep image prior
 
 In this repository we provide *Jupyter Notebooks* to reproduce each figure from the paper:
