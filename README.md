@@ -1,6 +1,9 @@
 http://docs.aws.amazon.com/mxnet/latest/dg/setup-jupyter-configure-client-mac.html
 
+Connecting:
 ssh -i torchjenkins.pem ec2-user@ec2-34-239-117-85.compute-1.amazonaws.com
+ssh -i torchjenkins.pem -L 8157:127.0.0.1:8888 ec2-user@ec2-184-72-193-237.compute-1.amazonaws.com
+ssh -i certificate.pem -L 8157:127.0.0.1:8888 ec2-user@ec2-184-72-193-237.compute-1.amazonaws.com
 
 
 
