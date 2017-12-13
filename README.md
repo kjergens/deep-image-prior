@@ -1,3 +1,10 @@
+http://docs.aws.amazon.com/mxnet/latest/dg/setup-jupyter-configure-client-mac.html
+
+ssh -i torchjenkins.pem ec2-user@ec2-34-239-117-85.compute-1.amazonaws.com
+
+
+
+
 My notes: [ec2 cuda instructions](https://github.com/pytorch/builder), [set up jupyter notebook on ec2](http://docs.aws.amazon.com/mxnet/latest/dg/setup-jupyter.html)
 
 
