@@ -1,3 +1,8 @@
+http://docs.aws.amazon.com/mxnet/latest/dg/setup-jupyter-configure-client-mac.html
+
+
+
+
 My notes: [ec2 cuda instructions](https://github.com/pytorch/builder), [set up jupyter notebook on ec2](http://docs.aws.amazon.com/mxnet/latest/dg/setup-jupyter.html)
 
 
