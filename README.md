@@ -1,18 +1,10 @@
-- http://docs.aws.amazon.com/mxnet/latest/dg/setup-jupyter-configure-client-mac.html
-- http://www.tothenew.com/blog/change-ssh-key-pair-of-running-ec2-instance/
-
 Connecting:
-- ssh -i torchjenkins.pem ec2-user@ec2-34-239-117-85.compute-1.amazonaws.com
-- ssh -i torchjenkins.pem -L 8157:127.0.0.1:8888 ec2-user@ec2-184-72-193-237.compute-1.amazonaws.com
-- ssh -i certificate.pem -L 8157:127.0.0.1:8888 ec2-user@ec2-184-72-193-237.compute-1.amazonaws.com
+1. Open Terminal and type ssh -i certificate.pem -L 8157:127.0.0.1:8888 ec2-user@ec2-34-203-218-157.compute-1.amazonaws.com
+    1. If times out, look at aws and see what the IP is. Each reboot gets a new one. 
+2. Run jupyter notebook (cd mynotebooks, jupyter notebook)
+3. Open notebook in browser (https://127.0.0.1:8157)
+4. Type in password
 
-Open notebook:
-- cd mynotebooks
-- juptyer notebook
-
-
-
-My notes: [ec2 cuda instructions](https://github.com/pytorch/builder), [set up jupyter notebook on ec2](http://docs.aws.amazon.com/mxnet/latest/dg/setup-jupyter.html)
 
 
 You can change dtype to torch.FloatTensor at the top of each notebook to use CPU instead of GPU.
